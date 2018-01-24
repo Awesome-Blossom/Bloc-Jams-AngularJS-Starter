@@ -10,10 +10,10 @@
          </div>
      </section>
      <table class="album-view-song-list">
-         <tr class="album-view-song-item" ng-mouseover="hovered = true" ng-mouseleave="hovered = false" ng-repeat="songs in albumData.songs">
+         <tr class="album-view-song-item" ng-mouseover="hovered = true" ng-mouseleave="hovered = false" ng-repeat="song in album.albumData.songs">
              <td class="song-item-number">
                  <span ng-show="!playing && !hovered" ng-repeat="songs in album">{{$index + 1}}</span>
-                 <a class="album-view-song-button" ng-show="!playing && hovered"><i class="fa fa-play"></i></a>
+                 <a class="album-view-song-button" ng-show="!playing && hovered" ng-click="album.songPlayer.play(song)"><i class="fa fa-play"></i></a>
                  <a class="album-view-song-button" ng-show="playing"><i class='fa fa-pause'></i></a>
              </td>
              <td class="song-item-title">{{ albumData.songs.title }}</td>

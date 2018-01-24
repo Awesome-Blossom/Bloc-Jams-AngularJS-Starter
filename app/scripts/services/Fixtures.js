@@ -43,6 +43,7 @@
     	}
     	return array;
     }
+    
     return Fixtures;
   }
 
