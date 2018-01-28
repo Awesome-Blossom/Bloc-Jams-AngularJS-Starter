@@ -62,7 +62,7 @@ body.album {
 
 .album-song-button {
     text-align: center;
-    font-size: 14px;
+    font-size: 18px;
     background-color: white;
     color: rgb(210, 40, 123);
     border-radius: 50% 50%;
@@ -82,8 +82,8 @@ body.album {
 }
 
 .album-song-button .fa-play {
-    padding-left: 5px;
-}
+    padding-left: 2px;
+    padding-top: 5px;
 
 @media (max-width: 40rem) and (min-width: 20rem) {
     .album-view-details {
