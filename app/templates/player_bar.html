@@ -1,11 +1,12 @@
-<section class="player-bar">
+<section class="player-bar" ng-controller="PlayerBarCtrl as playerBar">
   <div class="container">
     <div class="control-group main-controls">
-      <a class='previous'>
-        <i class="fa fa-backward"></i>
+      <a class='previous' ng-click= "playerBar.songPlayer.previous()">
+        <i class="fa fa-backward""></i>
       </a>
       <a class='play-pause'>
-        <i class="fa fa-play"></i>
+        <i class="fa fa-play" ng-show='!playerBar.songPlayer.currentSong.playing' ng-click="playerBar.songPlayer.play(song)"></i>
+        <i class="fa fa-pause" ng-show='playerBar.songPlayer.currentSong.playing' ng-click="playerBar.songPlayer.pause(song)"></i>
       </a>
       <a class='next'>
         <i class="fa fa-forward"></i>
