@@ -40,12 +40,20 @@
     };
     /*
      * @function getSongIndex
-     * @desc returns the index of the current song being played from the songs array in the current album
+     * @desc returns the index of the current song being played
      * @param {Object} song
      * @returns {Number} 
      */    
     var getSongIndex = function(song){
     	return currentAlbum.songs.indexOf(song);
+    };    
+    /*
+     * @function stopSong
+     * @desc stops current song.
+     */
+    var stopSong = function(){
+    	currentBuzzObject.stop();
+    	SongPlayer.currentSong.playing = null;
     };
     /**
      * @desc the song that is being played. Active song object from a list of songs
@@ -64,7 +72,14 @@
         playSong(song);
       } else if (SongPlayer.currentSong == song) {
         if (currentBuzzObject.isPaused()) {
-          playSong(song);
+        	// if(song==null){
+        	// }
+        	// else{
+        		
+        	// }
+        	console.log(getSongIndex);
+        	playSong(song);
+          
         }
       }
     };
@@ -80,21 +95,34 @@
     };
     /**
      * @function SongPlayer.previous
-     * @desc decreases the index of the currently playing song. 
+     * @desc decreases the index of the current song and plays it. 
      */
     SongPlayer.previous = function(){
     	var currentSongIndex = getSongIndex(SongPlayer.currentSong);
     	currentSongIndex--;
     	if(currentSongIndex < 0){
-    		currentBuzzObject.stop();
-    		SongPlayer.currentSong.playing = null;
+    		stopSong();
     	}else{
     		var song = currentAlbum.songs[currentSongIndex];
     		setSong(song);
     		playSong(song);
     	}
     };
-
+    /**
+     * @function SongPlayer.next
+     * @desc increases the index of the current song and plays it.
+     */
+    SongPlayer.next = function(){
+    	var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+    	currentSongIndex++;
+    	if(currentSongIndex > currentAlbum.songs.length){
+    		stopSong();
+    	}else{
+    		var song = currentAlbum.songs[currentSongIndex];
+    		setSong(song);
+    		playSong(song);
+    	}
+    };
     return SongPlayer;
   }
 

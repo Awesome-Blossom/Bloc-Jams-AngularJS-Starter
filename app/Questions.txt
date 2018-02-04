@@ -1,0 +1,12 @@
+Questions
+
+song player does not get controller in app module?
+shouldn't we be consistent?
+
+don't quite get what this means in songPlayer.js
+song = song || SongPlayer.currentSong;
+
+song.playing- where's the .playing coming from?
+.factory('SongPlayer', ['Fixtures', SongPlayer]);
+why is Fixtures in single quotes in songplayer.js
+stopSong function where do we use it?
